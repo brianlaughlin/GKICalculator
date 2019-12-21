@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from PIL import Image
 
 
 def calcGKI(glucose, ketone):
@@ -18,11 +19,14 @@ layout = [[sg.Text('GKI Calculator')],
           [sg.InputText()],
           [sg.Text('Enter your ketone')],
           [sg.InputText()],
-          [sg.Submit(), sg.Cancel()],
+          [sg.Submit(), sg.Cancel(), sg.Button('See Glucose Chart')],
           [sg.Text('Your GKI is: ', size=[17, 1] , key='output')],
           [sg.Text('', size=[53, 1], key='message')]]
 
 window = sg.Window('Window Title', layout)
+
+img = Image.open('puppy.jpg')
+img.show()
 
 while True:
     event, values = window.Read()
